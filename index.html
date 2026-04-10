@@ -21,11 +21,6 @@
     <meta property="og:site_name" content="Ravi Dhayal Advisory">
     <meta property="og:locale" content="en_IN">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ravi Dhayal | Real Estate Expert Gurgaon">
-    <meta name="twitter:description" content="Strategic property consulting in Gurgaon's high-growth corridors.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -58,29 +53,16 @@
         
         /* Custom range styling for EMI Calc */
         input[type=range] { accent-color: #C9A84C; cursor: pointer; }
-        
-        /* Chrome, Safari, Edge, Opera - Remove arrows from number input */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-        input[type=number] { -moz-appearance: textfield; } /* Firefox */
+        input[type=number] { -moz-appearance: textfield; }
         
-        /* Page Transitions */
-        .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.4s ease-out; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* Mobile Menu */
         #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
         #mobile-menu.open { transform: translateX(0); }
         
         h1, h2, h3 { font-weight: 800; }
         p { font-weight: 400; line-height: 1.6; }
-
-        .contact-icon-shadow { box-shadow: 0 10px 30px -10px rgba(26, 26, 46, 0.12); }
     </style>
 </head>
 <body class="bg-white text-[#1A1A2E] antialiased selection:bg-[#C9A84C] selection:text-[#1A1A2E]">
@@ -88,18 +70,20 @@
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-[100] bg-[#1A1A2E]/95 backdrop-blur-md border-b border-white/10 h-20">
         <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-            <div onclick="showPage('home')" class="flex flex-col cursor-pointer group">
+            <a href="index.html" class="flex flex-col cursor-pointer group">
                 <span class="text-xl md:text-2xl font-extrabold text-[#C9A84C] tracking-tight leading-none uppercase">Ravi Dhayal</span>
-                <span class="text-[9px] text-gray-400 font-bold tracking-[0.2em] uppercase mt-1">Circle Head • Square Yards</span>
-            </div>
+                <span class="text-xs text-gray-400 font-bold tracking-[0.2em] uppercase mt-1">Circle Head • Square Yards</span>
+            </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-10">
-                <a href="#home" onclick="showPage('home'); return false;" class="nav-btn text-[11px] font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors" data-page="home">Home</a>
-                <a href="#projects" onclick="showPage('projects'); return false;" class="nav-btn text-[11px] font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors" data-page="projects">Projects</a>
-                <a href="#contact" onclick="showPage('contact'); return false;" class="nav-btn text-[11px] font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors" data-page="contact">Contact</a>
-                <a href="tel:+919891356847" class="bg-[#C9A84C] text-[#1A1A2E] px-6 py-2.5 rounded-xl text-[11px] font-bold flex items-center space-x-2 hover:bg-[#B89740] transition-all">
-                    <i data-lucide="phone" class="w-3.5 h-3.5"></i> <span>Call Now</span>
+                <a href="index.html" class="nav-btn nav-link-active text-xs font-bold uppercase tracking-widest text-[#C9A84C] transition-colors">Home</a>
+                <a href="projects.html" class="nav-btn text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors">Projects</a>
+                <a href="about.html" class="nav-btn text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors">About Us</a>
+                <a href="testimonials.html" class="nav-btn text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors">Testimonials</a>
+                <a href="contact.html" class="nav-btn text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-white transition-colors">Contact</a>
+                <a href="tel:+919891356847" class="bg-[#C9A84C] text-[#1A1A2E] px-6 py-2.5 rounded-xl text-xs font-bold flex items-center space-x-2 hover:bg-[#B89740] transition-all">
+                    <i data-lucide="phone" class="w-4 h-4"></i> <span>Call Now</span>
                 </a>
             </nav>
 
@@ -111,388 +95,472 @@
     </header>
 
     <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-[#1A1A2E] px-6 pt-24">
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-[#1A1A2E] px-6 pt-24 hidden lg:hidden block">
         <button onclick="toggleMenu(false)" class="absolute top-6 right-6 text-white p-2" aria-label="Close Menu">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
         <nav class="flex flex-col space-y-8">
-            <a href="#home" onclick="showPage('home'); return false;" class="mobile-nav-btn nav-btn text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors" data-page="home">Home</a>
-            <a href="#projects" onclick="showPage('projects'); return false;" class="mobile-nav-btn nav-btn text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors" data-page="projects">Projects</a>
-            <a href="#contact" onclick="showPage('contact'); return false;" class="mobile-nav-btn nav-btn text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors" data-page="contact">Contact</a>
+            <a href="index.html" class="text-4xl font-extrabold text-left uppercase tracking-tight text-[#C9A84C] transition-colors">Home</a>
+            <a href="projects.html" class="text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors">Projects</a>
+            <a href="about.html" class="text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors">About Us</a>
+            <a href="testimonials.html" class="text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors">Testimonials</a>
+            <a href="contact.html" class="text-4xl font-extrabold text-left uppercase tracking-tight text-white transition-colors">Contact</a>
             
             <div class="pt-8 space-y-6">
                 <a href="tel:+919891356847" class="flex items-center gap-4 text-gray-400 font-bold uppercase text-xs tracking-widest"><i data-lucide="phone" class="text-[#C9A84C]"></i> Call Direct</a>
                 <a href="https://wa.me/919891356847" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 text-gray-400 font-bold uppercase text-xs tracking-widest">
-                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-emerald-500"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    WhatsApp
-                </a>
-                <a href="https://www.linkedin.com/in/ravi-dhayal-6a19bb10/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 text-gray-400 font-bold uppercase text-xs tracking-widest">
-                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-[#0077b5]"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-                    LinkedIn
+                    <i data-lucide="message-circle" class="text-emerald-500"></i> WhatsApp
                 </a>
             </div>
         </nav>
     </div>
 
     <!-- Main Content -->
-    <main class="min-h-screen pb-16 lg:pb-0">
-        
-        <!-- HOME PAGE -->
-        <div id="page-home" class="page-section active pt-20">
-            <!-- Hero -->
-            <section class="bg-[#1A1A2E] pt-16 pb-24 md:pt-32 md:pb-40 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 pointer-events-none">
-                    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C9A84C] rounded-full blur-[120px]"></div>
-                </div>
-                <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest mb-8">
-                            <i data-lucide="award" class="w-3.5 h-3.5"></i> <span>Circle Head @ Square Yards</span>
-                        </div>
-                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-                            Invest in Gurgaon's <span class="text-[#C9A84C]">Premium Alpha.</span>
-                        </h1>
-                        <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed font-normal max-w-lg">
-                            Institutional-grade property consulting with 100% transparency. Secure your legacy and invest in Gurgaon's premium alpha assets.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#projects" onclick="showPage('projects'); return false;" class="bg-[#C9A84C] text-[#1A1A2E] px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 shadow-xl hover:shadow-2xl transition-all active:scale-95">
-                                <span>View Asset List</span> <i data-lucide="arrow-right"></i>
-                            </a>
-                            <a href="#contact" onclick="showPage('contact'); return false;" class="bg-white/5 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-center">
-                                Free Consultation
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Dynamic Hero Form -->
-                    <div id="hero-form-container"></div>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section class="py-24 bg-white">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="grid md:grid-cols-2 gap-16 items-center">
-                        <div class="relative">
-                            <div class="aspect-[4/5] bg-gray-100 rounded-3xl overflow-hidden border-8 border-gray-50 shadow-2xl relative z-10">
-                                <img src="ravi.jpg" alt="Ravi Dhayal - Circle Head Square Yards" loading="lazy" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop'">
-                            </div>
-                            <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-[#C9A84C] p-6 md:p-8 rounded-2xl text-[#1A1A2E] shadow-2xl z-20">
-                                <p class="text-3xl md:text-4xl font-extrabold leading-none">100+</p>
-                                <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2">HNI Portfolios Managed</p>
-                            </div>
-                        </div>
-                        <div class="space-y-8">
-                            <div class="mb-12">
-                                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">About Ravi Dhayal</h2>
-                                <p class="text-lg text-gray-500 font-medium max-w-2xl">Leading the Gurgaon Real Estate engine with institutional transparency.</p>
-                                <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
-                            </div>
-                            <p class="text-lg text-gray-600 leading-relaxed font-normal">
-                                As a Circle Head at <strong class="text-[#1A1A2E]">Square Yards</strong>, I specialize in identifying high-yield residential and commercial opportunities. My approach combines big-data analytics with localized market intelligence to secure premium entry for my clients.
-                            </p>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <h4 class="text-[#1A1A2E] font-bold uppercase text-sm tracking-wide">Strategic Allotment</h4>
-                                    <p class="text-sm text-gray-500 leading-relaxed">First-right access to premium inventory.</p>
-                                </div>
-                                <div class="space-y-2">
-                                    <h4 class="text-[#1A1A2E] font-bold uppercase text-sm tracking-wide">Data Analytics</h4>
-                                    <p class="text-sm text-gray-500 leading-relaxed">Predicting future appreciation corridors.</p>
-                                </div>
-                            </div>
-                            <p class="italic text-xl text-[#1A1A2E] font-medium border-l-4 border-[#C9A84C] pl-6 py-2">
-                                "We don't sell square feet; we secure your family's future wealth."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why Buy From Ravi Dhayal Section -->
-            <section class="py-24 bg-[#1A1A2E] text-white">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4 text-white">Why Buy From Ravi Dhayal?</h2>
-                        <p class="text-lg text-gray-400 font-medium max-w-2xl mx-auto">More than a transaction. A long-term wealth creation partnership.</p>
-                        <div class="w-20 h-1 bg-[#C9A84C] mt-6 mx-auto"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                            <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
-                                <i data-lucide="key" class="w-6 h-6 text-[#1A1A2E]"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-3 text-white">Exclusive Inventory</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">Priority access to pre-launch allotments, highly sought-after corner units, and developer-reserved inventory before it hits the open market.</p>
-                        </div>
-                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                            <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
-                                <i data-lucide="bar-chart-3" class="w-6 h-6 text-[#1A1A2E]"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-3 text-white">Data-Backed Logic</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">No emotional selling. Every recommendation is backed by micro-market analytics, infrastructure roadmaps, and historical ROI data.</p>
-                        </div>
-                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                            <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
-                                <i data-lucide="shield" class="w-6 h-6 text-[#1A1A2E]"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-3 text-white">Institutional Safety</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">Operating under Square Yards ensures 100% RERA-compliant, risk-free transactions with legal and financial due diligence pre-completed.</p>
-                        </div>
-                        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
-                            <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
-                                <i data-lucide="briefcase" class="w-6 h-6 text-[#1A1A2E]"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-3 text-white">End-to-End Mgmt</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">From identifying the asset and securing loan approvals to post-possession leasing and eventual secondary market exit strategies.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Intelligence -->
-            <section class="py-24 bg-gray-50" id="why-gurgaon">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">Market Intelligence</h2>
-                        <p class="text-lg text-gray-500 font-medium">The Millennium City remains India's most institutionalized real estate growth engine.</p>
-                        <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
-                            <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
-                                <i data-lucide="target" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">The Economic Hub</h3>
-                            <p class="text-gray-600 leading-relaxed font-medium">Home to <strong class="text-[#1A1A2E]">250+ Fortune 500</strong> companies. Constant demand ensures stability.</p>
-                        </div>
-                        <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
-                            <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
-                                <i data-lucide="trending-up" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">Strategic ROI</h3>
-                            <p class="text-gray-600 leading-relaxed font-medium">Gurgaon property prices outperformed NCR by <strong class="text-[#1A1A2E]">28.5% in 2024</strong>.</p>
-                        </div>
-                        <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
-                            <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
-                                <i data-lucide="globe" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">Infrastructure</h3>
-                            <p class="text-gray-600 leading-relaxed font-medium">Direct proximity to IGI Airport and the global <strong class="text-[#1A1A2E]">Dwarka Expressway</strong> corridor.</p>
-                        </div>
-                    </div>
-
-                    <!-- Rate Comparison & Future Projection -->
-                    <div class="mt-24 grid lg:grid-cols-2 gap-16 items-start">
-                        <div class="space-y-8">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Gurgaon Real Estate Trajectory</h3>
-                                <p class="text-gray-600 font-medium">A look at the capital appreciation across premium corridors over the last 6 years.</p>
-                                <div class="w-12 h-1 bg-[#C9A84C] mt-4"></div>
-                            </div>
-                            <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm bg-white">
-                                <table class="w-full text-left text-sm border-collapse">
-                                    <thead class="bg-[#1A1A2E] text-white">
-                                        <tr>
-                                            <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Micro Market</th>
-                                            <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Avg Price (2020)</th>
-                                            <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Avg Price (2026)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-gray-700 font-medium">
-                                        <tr class="border-b border-gray-100">
-                                            <td class="p-4">Dwarka Expressway</td>
-                                            <td class="p-4 text-gray-500">₹ 7,500 / sq.ft</td>
-                                            <td class="p-4 font-bold text-emerald-600">₹ 18,500 / sq.ft</td>
-                                        </tr>
-                                        <tr class="border-b border-gray-100 bg-gray-50">
-                                            <td class="p-4">Golf Course Ext.</td>
-                                            <td class="p-4 text-gray-500">₹ 9,000 / sq.ft</td>
-                                            <td class="p-4 font-bold text-emerald-600">₹ 22,000 / sq.ft</td>
-                                        </tr>
-                                        <tr class="border-b border-gray-100">
-                                            <td class="p-4">New Gurgaon</td>
-                                            <td class="p-4 text-gray-500">₹ 5,500 / sq.ft</td>
-                                            <td class="p-4 font-bold text-emerald-600">₹ 14,000 / sq.ft</td>
-                                        </tr>
-                                        <tr class="bg-gray-50">
-                                            <td class="p-4">SPR Road</td>
-                                            <td class="p-4 text-gray-500">₹ 6,500 / sq.ft</td>
-                                            <td class="p-4 font-bold text-emerald-600">₹ 16,500 / sq.ft</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="space-y-8">
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Future Projections (2026-2030)</h3>
-                                <p class="text-gray-600 font-medium">Why the growth engine isn't slowing down anytime soon.</p>
-                                <div class="w-12 h-1 bg-[#C9A84C] mt-4"></div>
-                            </div>
-                            <div class="space-y-6">
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                                        <i data-lucide="train" class="w-6 h-6"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Gurgaon Metro Expansion</h4>
-                                        <p class="text-sm text-gray-600 leading-relaxed">The approved 28.5 km metro loop connecting Millennium City Centre to Cyber City will dramatically boost valuations in New Gurgaon and Dwarka Exp.</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                                        <i data-lucide="building-2" class="w-6 h-6"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Global City Project</h4>
-                                        <p class="text-sm text-gray-600 leading-relaxed">A 1000-acre mega-development spanning Sectors 36B, 37A, and 37B. Expected to generate massive commercial demand and redefine the skyline.</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                                        <i data-lucide="plane-takeoff" class="w-6 h-6"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Airport Connectivity & NCRTC</h4>
-                                        <p class="text-sm text-gray-600 leading-relaxed">Rapid Rail (RRTS) alignment and seamless IGI airport access continue to make Gurgaon the undisputed choice for global MNCs.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Home Loan EMI Calculator Section -->
-            <section class="py-24 bg-white" id="calculator">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="grid lg:grid-cols-2 gap-20 items-start mb-20">
-                        <div id="emi-calc-container"></div>
-                        <div class="space-y-8">
-                            <div class="mb-12">
-                                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">Home Loan EMI Calculator</h2>
-                                <p class="text-lg text-gray-500 font-medium">Plan your Gurgaon property investment with precision using our accurate loan estimator.</p>
-                                <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
-                            </div>
-                            <div class="space-y-6">
-                                <div class="flex items-start gap-4">
-                                    <i data-lucide="check-circle-2" class="text-emerald-500 mt-1 flex-shrink-0 w-6 h-6"></i>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-[#1A1A2E]">Real-Time Eligibility</h4>
-                                        <p class="text-gray-600 font-medium">Get a clear picture of your borrowing capacity based on current ROI trends in Haryana.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4">
-                                    <i data-lucide="check-circle-2" class="text-emerald-500 mt-1 flex-shrink-0 w-6 h-6"></i>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-[#1A1A2E]">Institutional Tie-ups</h4>
-                                        <p class="text-gray-600 font-medium">Access special interest rates through Square Yards' partnerships with major banks like HDFC, ICICI, and SBI.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Social Proof -->
-            <section class="py-24 bg-gray-50">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl font-bold text-[#1A1A2E] uppercase tracking-tighter mb-4">What Investors Say</h2>
-                        <div class="flex justify-center text-[#C9A84C] gap-1" id="stars-container"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" id="testimonials-grid"></div>
-                </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section class="py-24 bg-white">
-                <div class="max-w-4xl mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Frequently Asked Questions</h2>
-                        <p class="text-lg text-gray-500 font-medium max-w-2xl mx-auto">Insights for serious property investors.</p>
-                        <div class="w-20 h-1 bg-[#C9A84C] mt-6 mx-auto"></div>
-                    </div>
-                    <div class="space-y-4">
-                        <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
-                            <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
-                                Is it the right time to invest in Gurgaon, or are prices peaked?
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">While prices have surged since 2020, Gurgaon is transitioning from a developing suburb to a global metropolis. With projects like the Global City, RRTS, and Metro expansion in the pipeline, we project a steady 12-15% YoY appreciation for premium assets in strategic corridors.</p>
-                        </details>
-                        <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
-                            <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
-                                How is buying through you different from direct developer purchase?
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">As a Circle Head at Square Yards, I secure bulk institutional allotments. This means you get access to priority unit selection (corner units, prime views) and pre-launch pricing that is simply unavailable to direct walk-in clients. Furthermore, my advisory is unbiased across multiple developers.</p>
-                        </details>
-                        <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
-                            <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
-                                What is the typical payment plan for under-construction properties?
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">Most grade-A developers offer Construction Linked Plans (CLP) where payments are staggered across 3-4 years based on construction milestones. We also negotiate exclusive subvention plans or 30:40:30 flexible payment structures for our HNI clients.</p>
-                        </details>
-                        <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
-                            <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
-                                Do you assist with property management and rentals after possession?
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
-                            </summary>
-                            <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">Yes. Real estate is a lifecycle investment. My team handles end-to-end post-possession services including finding high-quality corporate tenants, lease agreement structuring, and eventually managing secondary market exits when you want to book profits.</p>
-                        </details>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- PROJECTS LIST PAGE -->
-        <div id="page-projects" class="page-section pt-32 pb-32 bg-gray-50 min-h-screen">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h2 class="text-5xl font-extrabold text-[#1A1A2E] mb-6 uppercase tracking-tight">The Portfolio</h2>
-                    <p class="text-gray-500 text-xl max-w-xl mx-auto font-medium">Verified, RERA-Certified mandates personally vetted for HNI portfolios.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-grid"></div>
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-[#1A1A2E] pt-32 pb-24 md:pt-40 md:pb-40 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C9A84C] rounded-full blur-[120px]"></div>
             </div>
-        </div>
-
-        <!-- PROJECT DETAIL PAGE -->
-        <div id="page-detail" class="page-section pt-32 pb-32 bg-white min-h-screen">
-            <div class="max-w-7xl mx-auto px-6">
-                <a href="#projects" onclick="showPage('projects'); return false;" class="flex items-center text-[#1A1A2E] font-bold mb-12 hover:text-[#C9A84C] transition-colors inline-flex">
-                    <i data-lucide="arrow-left" class="mr-2"></i> Back to Portfolio
-                </a>
-                <div id="detail-content"></div>
-            </div>
-        </div>
-
-        <!-- CONTACT PAGE -->
-        <div id="page-contact" class="page-section pt-32 pb-32 bg-gray-50 min-h-screen">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h2 class="text-5xl font-extrabold text-[#1A1A2E] mb-6 uppercase tracking-tight">Executive Advisory</h2>
-                    <p class="text-gray-500 text-xl font-medium max-w-xl mx-auto">Access high-value real estate roadmaps and institutional transparency.</p>
+            <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[#C9A84C] text-xs font-bold uppercase tracking-widest mb-8">
+                        <i data-lucide="award" class="w-4 h-4"></i> <span>Circle Head @ Square Yards</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+                        Invest in Gurgaon's <span class="text-[#C9A84C]">Premium Alpha.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed font-normal max-w-lg">
+                        Institutional-grade property consulting with 100% transparency. Secure your legacy and invest in Gurgaon's premium alpha assets.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="projects.html" class="bg-[#C9A84C] text-[#1A1A2E] px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 shadow-xl hover:shadow-2xl transition-all active:scale-95">
+                            <span>View Asset List</span> <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="bg-white/5 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-center">
+                            Free Consultation
+                        </a>
+                    </div>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-20">
-                    <div class="space-y-12">
+                
+                <!-- Static Hero Form (Better SEO & Speed than injecting via JS) -->
+                <div id="hero-form-container">
+                    <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-100 h-full">
+                        <h3 class="text-2xl font-bold text-[#1A1A2E] mb-2">Get a Call Back</h3>
+                        <p class="text-sm text-gray-500 mb-8 font-medium">Priority inventory access via Ravi Dhayal's desk.</p>
+                        <form id="hero-form" class="space-y-4" onsubmit="handleFormSubmit(event, 'Homepage Hero')">
+                            <!-- Honeypot for Bot Spam Protection -->
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                            
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Full Name</label>
+                                <input name="name" required minlength="3" type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#C9A84C] outline-none transition-all font-medium" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Phone Number</label>
+                                <input name="phone" required pattern="[0-9]{10}" type="tel" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#C9A84C] outline-none transition-all font-medium" placeholder="10 Digit Mobile Number">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Budget</label>
+                                    <select name="budget" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 outline-none appearance-none font-bold text-sm text-[#1A1A2E]">
+                                        <option value="" disabled selected>Select Budget</option>
+                                        <option value="₹ 1.5 - 2.5 Cr">₹ 1.5 - 2.5 Cr</option>
+                                        <option value="₹ 2.5 - 4.0 Cr">₹ 2.5 - 4.0 Cr</option>
+                                        <option value="₹ 4.0 - 7.0 Cr">₹ 4.0 - 7.0 Cr</option>
+                                        <option value="₹ 7.0 Cr+">₹ 7.0 Cr+</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Location</label>
+                                    <select name="location" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 outline-none appearance-none font-bold text-sm text-[#1A1A2E]">
+                                        <option value="" disabled selected>Select Location</option>
+                                        <option value="Dwarka Exp.">Dwarka Exp.</option>
+                                        <option value="GC Extension">GC Extension</option>
+                                        <option value="SPR Road">SPR Road</option>
+                                        <option value="New Gurgaon">New Gurgaon</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn w-full bg-[#1A1A2E] text-white font-bold py-5 rounded-xl hover:bg-[#2A2A4E] transition-all flex items-center justify-center space-x-2 shadow-lg active:scale-95 uppercase tracking-widest text-sm">
+                                <span class="btn-text">Connect with Ravi</span>
+                            </button>
+                            <div class="pt-4 text-center">
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center justify-center gap-1">
+                                    <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Authorized Square Yards Advisory
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Teaser Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/5] bg-gray-100 rounded-3xl overflow-hidden border-8 border-gray-50 shadow-2xl relative z-10">
+                            <!-- Needs actual image file -->
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop" alt="Ravi Dhayal - Circle Head" loading="lazy" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-[#C9A84C] p-6 md:p-8 rounded-2xl text-[#1A1A2E] shadow-2xl z-20">
+                            <p class="text-3xl md:text-4xl font-extrabold leading-none">100+</p>
+                            <p class="text-xs font-bold uppercase tracking-widest mt-2">HNI Portfolios Managed</p>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
                         <div class="mb-12">
-                            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">Direct Access</h2>
-                            <p class="text-lg text-gray-500 font-medium">Contact the Circle Head desk directly for a strategy session.</p>
+                            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">About Ravi Dhayal</h2>
+                            <p class="text-lg text-gray-500 font-medium max-w-2xl">Leading the Gurgaon Real Estate engine with institutional transparency.</p>
                             <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
                         </div>
-                        <div class="space-y-8" id="contact-info-list"></div>
+                        <p class="text-lg text-gray-600 leading-relaxed font-normal">
+                            As a Circle Head at <strong class="text-[#1A1A2E]">Square Yards</strong>, I specialize in identifying high-yield residential and commercial opportunities. My approach combines big-data analytics with localized market intelligence to secure premium entry for my clients.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <h4 class="text-[#1A1A2E] font-bold uppercase text-sm tracking-wide">Strategic Allotment</h4>
+                                <p class="text-sm text-gray-500 leading-relaxed">First-right access to premium inventory.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="text-[#1A1A2E] font-bold uppercase text-sm tracking-wide">Data Analytics</h4>
+                                <p class="text-sm text-gray-500 leading-relaxed">Predicting future appreciation corridors.</p>
+                            </div>
+                        </div>
+                        <p class="italic text-xl text-[#1A1A2E] font-medium border-l-4 border-[#C9A84C] pl-6 py-2">
+                            "We don't sell square feet; we secure your family's future wealth."
+                        </p>
+                        <a href="about.html" class="inline-flex font-bold text-sm text-[#C9A84C] uppercase tracking-widest hover:text-[#1A1A2E] transition-colors mt-4 items-center">
+                            Read Full Profile <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
                     </div>
-                    <div id="contact-form-container"></div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Why Buy Section -->
+        <section class="py-24 bg-[#1A1A2E] text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4 text-white">Why Buy From Ravi Dhayal?</h2>
+                    <p class="text-lg text-gray-400 font-medium max-w-2xl mx-auto">More than a transaction. A long-term wealth creation partnership.</p>
+                    <div class="w-20 h-1 bg-[#C9A84C] mt-6 mx-auto"></div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="key" class="w-6 h-6 text-[#1A1A2E]"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-white">Exclusive Inventory</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Priority access to pre-launch allotments, highly sought-after corner units, and developer-reserved inventory before it hits the open market.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="bar-chart-3" class="w-6 h-6 text-[#1A1A2E]"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-white">Data-Backed Logic</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">No emotional selling. Every recommendation is backed by micro-market analytics, infrastructure roadmaps, and historical ROI data.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="shield" class="w-6 h-6 text-[#1A1A2E]"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-white">Institutional Safety</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Operating under Square Yards ensures 100% RERA-compliant, risk-free transactions with legal and financial due diligence pre-completed.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-[#C9A84C] rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-[#1A1A2E]"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-white">End-to-End Mgmt</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">From identifying the asset and securing loan approvals to post-possession leasing and eventual secondary market exit strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intelligence -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">Market Intelligence</h2>
+                    <p class="text-lg text-gray-500 font-medium">The Millennium City remains India's most institutionalized real estate growth engine.</p>
+                    <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
+                        <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+                            <i data-lucide="target" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">The Economic Hub</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium">Home to <strong class="text-[#1A1A2E]">250+ Fortune 500</strong> companies. Constant demand ensures stability.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
+                        <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+                            <i data-lucide="trending-up" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">Strategic ROI</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium">Gurgaon property prices outperformed NCR by <strong class="text-[#1A1A2E]">28.5% in 2024</strong>.</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-all group">
+                        <div class="w-16 h-16 bg-[#C9A84C]/10 text-[#C9A84C] rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+                            <i data-lucide="globe" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-[#1A1A2E]">Infrastructure</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium">Direct proximity to IGI Airport and the global <strong class="text-[#1A1A2E]">Dwarka Expressway</strong> corridor.</p>
+                    </div>
+                </div>
+
+                <!-- Rate Comparison & Future Projection -->
+                <div class="mt-24 grid lg:grid-cols-2 gap-16 items-start">
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Gurgaon Real Estate Trajectory</h3>
+                            <p class="text-gray-600 font-medium">A look at the capital appreciation across premium corridors over the last 6 years.</p>
+                            <div class="w-12 h-1 bg-[#C9A84C] mt-4"></div>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm bg-white">
+                            <table class="w-full text-left text-sm border-collapse">
+                                <thead class="bg-[#1A1A2E] text-white">
+                                    <tr>
+                                        <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Micro Market</th>
+                                        <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Avg Price (2020)</th>
+                                        <th class="p-4 font-bold uppercase tracking-widest text-[10px]">Avg Price (2026)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-gray-700 font-medium">
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4">Dwarka Expressway</td>
+                                        <td class="p-4 text-gray-500">₹ 7,500 / sq.ft</td>
+                                        <td class="p-4 font-bold text-emerald-600">₹ 18,500 / sq.ft</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 bg-gray-50">
+                                        <td class="p-4">Golf Course Ext.</td>
+                                        <td class="p-4 text-gray-500">₹ 9,000 / sq.ft</td>
+                                        <td class="p-4 font-bold text-emerald-600">₹ 22,000 / sq.ft</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4">New Gurgaon</td>
+                                        <td class="p-4 text-gray-500">₹ 5,500 / sq.ft</td>
+                                        <td class="p-4 font-bold text-emerald-600">₹ 14,000 / sq.ft</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="p-4">SPR Road</td>
+                                        <td class="p-4 text-gray-500">₹ 6,500 / sq.ft</td>
+                                        <td class="p-4 font-bold text-emerald-600">₹ 16,500 / sq.ft</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Future Projections (2026-2030)</h3>
+                            <p class="text-gray-600 font-medium">Why the growth engine isn't slowing down anytime soon.</p>
+                            <div class="w-12 h-1 bg-[#C9A84C] mt-4"></div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="train" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Gurgaon Metro Expansion</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">The approved 28.5 km metro loop connecting Millennium City Centre to Cyber City will dramatically boost valuations in New Gurgaon and Dwarka Exp.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="building-2" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Global City Project</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">A 1000-acre mega-development spanning Sectors 36B, 37A, and 37B. Expected to generate massive commercial demand and redefine the skyline.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="plane-takeoff" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-[#1A1A2E] mb-1">Airport Connectivity & NCRTC</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">Rapid Rail (RRTS) alignment and seamless IGI airport access continue to make Gurgaon the undisputed choice for global MNCs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Loan EMI Calculator Section (Static HTML instead of JS Injection) -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-20 items-start">
+                    
+                    <div id="emi-calc-container">
+                        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                            <div class="bg-[#1A1A2E] p-6 text-center">
+                                <h3 class="text-[#C9A84C] font-bold text-lg uppercase tracking-widest">Loan EMI Estimator</h3>
+                            </div>
+                            <div class="p-8 space-y-8">
+                                <div>
+                                    <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
+                                        <div>
+                                            <span>Loan Amount (₹)</span>
+                                            <span id="emi-val-formatted" class="text-[#C9A84C] ml-1 font-extrabold normal-case tracking-normal text-xs">(1.5 Cr)</span>
+                                        </div>
+                                        <input type="number" id="emi-val-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-36" value="15000000">
+                                    </div>
+                                    <input type="range" min="1000000" max="100000000" step="100000" value="15000000" id="emi-val" class="w-full mt-2">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
+                                            <span>Rate (%)</span>
+                                            <input type="number" step="0.1" id="emi-rate-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-20" value="8.5">
+                                        </div>
+                                        <input type="range" min="6" max="15" step="0.1" value="8.5" id="emi-rate" class="w-full mt-2">
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
+                                            <span>Tenure (Yrs)</span>
+                                            <input type="number" id="emi-yr-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-20" value="20">
+                                        </div>
+                                        <input type="range" min="1" max="30" step="1" value="20" id="emi-yr" class="w-full mt-2">
+                                    </div>
+                                </div>
+                                <div class="mt-8 p-6 bg-gray-50 rounded-2xl">
+                                    <div class="text-center">
+                                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Estimated Monthly Payment</p>
+                                        <p class="text-4xl font-extrabold text-[#C9A84C]" id="emi-result">₹ 1,30,170</p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-gray-200">
+                                        <div class="text-center">
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase">Total Interest</p>
+                                            <p class="text-sm font-bold text-[#1A1A2E]" id="total-interest">₹ 1.62 Cr</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase">Total Payable</p>
+                                            <p class="text-sm font-bold text-[#1A1A2E]" id="total-payable">₹ 3.12 Cr</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">Home Loan EMI Calculator</h2>
+                            <p class="text-lg text-gray-500 font-medium">Plan your Gurgaon property investment with precision using our accurate loan estimator.</p>
+                            <div class="w-20 h-1 bg-[#C9A84C] mt-6"></div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="check-circle-2" class="text-emerald-500 mt-1 flex-shrink-0 w-6 h-6"></i>
+                                <div>
+                                    <h4 class="text-lg font-bold text-[#1A1A2E]">Real-Time Eligibility</h4>
+                                    <p class="text-gray-600 font-medium">Get a clear picture of your borrowing capacity based on current ROI trends in Haryana.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="check-circle-2" class="text-emerald-500 mt-1 flex-shrink-0 w-6 h-6"></i>
+                                <div>
+                                    <h4 class="text-lg font-bold text-[#1A1A2E]">Institutional Tie-ups</h4>
+                                    <p class="text-gray-600 font-medium">Access special interest rates through Square Yards' partnerships with major banks like HDFC, ICICI, and SBI.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Teaser -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-[#1A1A2E] uppercase tracking-tighter mb-4">What Investors Say</h2>
+                    <div class="flex justify-center text-[#C9A84C] gap-1 mb-8">
+                        <i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 h-full flex flex-col justify-between shadow-sm">
+                        <p class="text-gray-600 mb-8 italic font-medium">"Ravi's knowledge of the Godrej corridor is phenomenal. He found me a project that appreciated significantly in just 6 months."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-[#1A1A2E] text-white rounded-full flex items-center justify-center font-bold text-sm">V</div>
+                            <div><p class="font-bold text-sm text-[#1A1A2E]">Vikram Mehta</p><p class="text-xs text-gray-400 font-bold uppercase">Business Owner</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 h-full flex flex-col justify-between shadow-sm">
+                        <p class="text-gray-600 mb-8 italic font-medium">"As an NRI, I needed a trusted advisor. Ravi provided data-backed projections for Westin Residences that were spot on."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-[#1A1A2E] text-white rounded-full flex items-center justify-center font-bold text-sm">S</div>
+                            <div><p class="font-bold text-sm text-[#1A1A2E]">Sandeep Gupta</p><p class="text-xs text-gray-400 font-bold uppercase">NRI Investor</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="testimonials.html" class="inline-flex font-bold text-sm text-[#C9A84C] uppercase tracking-widest hover:text-[#1A1A2E] transition-colors items-center">
+                        Read All Testimonials <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4 text-[#1A1A2E]">Frequently Asked Questions</h2>
+                    <p class="text-lg text-gray-500 font-medium max-w-2xl mx-auto">Insights for serious property investors.</p>
+                    <div class="w-20 h-1 bg-[#C9A84C] mt-6 mx-auto"></div>
+                </div>
+                <div class="space-y-4">
+                    <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
+                        <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
+                            Is it the right time to invest in Gurgaon, or are prices peaked?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
+                        </summary>
+                        <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">While prices have surged since 2020, Gurgaon is transitioning from a developing suburb to a global metropolis. With projects like the Global City, RRTS, and Metro expansion in the pipeline, we project a steady 12-15% YoY appreciation for premium assets in strategic corridors.</p>
+                    </details>
+                    <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
+                        <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
+                            How is buying through you different from direct developer purchase?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
+                        </summary>
+                        <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">As a Circle Head at Square Yards, I secure bulk institutional allotments. This means you get access to priority unit selection (corner units, prime views) and pre-launch pricing that is simply unavailable to direct walk-in clients. Furthermore, my advisory is unbiased across multiple developers.</p>
+                    </details>
+                    <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
+                        <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
+                            What is the typical payment plan for under-construction properties?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
+                        </summary>
+                        <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">Most grade-A developers offer Construction Linked Plans (CLP) where payments are staggered across 3-4 years based on construction milestones. We also negotiate exclusive subvention plans or 30:40:30 flexible payment structures for our HNI clients.</p>
+                    </details>
+                    <details class="bg-gray-50 p-6 rounded-2xl cursor-pointer group border border-gray-100">
+                        <summary class="font-bold text-lg text-[#1A1A2E] flex justify-between items-center list-none outline-none">
+                            Do you assist with property management and rentals after possession?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A84C]"></i>
+                        </summary>
+                        <p class="text-sm text-gray-600 mt-4 leading-relaxed border-t border-gray-200 pt-4">Yes. Real estate is a lifecycle investment. My team handles end-to-end post-possession services including finding high-quality corporate tenants, lease agreement structuring, and eventually managing secondary market exits when you want to book profits.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -503,7 +571,7 @@
                 <div class="md:col-span-2 space-y-6">
                     <div class="flex flex-col">
                         <span class="text-3xl font-extrabold text-[#C9A84C] tracking-tight uppercase">Ravi Dhayal</span>
-                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Circle Head • Square Yards</span>
+                        <span class="text-xs text-gray-400 font-bold uppercase tracking-widest mt-1">Circle Head • Square Yards</span>
                     </div>
                     <p class="text-gray-400 max-w-sm font-medium leading-relaxed">
                         Leading Gurgaon's real estate circle with data-driven insights and an institutional focus on wealth preservation.
@@ -511,23 +579,24 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-sm uppercase tracking-widest border-b border-white/10 pb-4 mb-6">Explore</h4>
-                    <ul class="space-y-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                        <li><a href="#home" onclick="showPage('home'); return false;" class="hover:text-[#C9A84C] cursor-pointer">Home</a></li>
-                        <li><a href="#projects" onclick="showPage('projects'); return false;" class="hover:text-[#C9A84C] cursor-pointer">Projects</a></li>
-                        <li><a href="#contact" onclick="showPage('contact'); return false;" class="hover:text-[#C9A84C] cursor-pointer">Contact</a></li>
+                    <ul class="space-y-4 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                        <li><a href="index.html" class="hover:text-[#C9A84C] transition-colors">Home</a></li>
+                        <li><a href="projects.html" class="hover:text-[#C9A84C] transition-colors">Projects</a></li>
+                        <li><a href="about.html" class="hover:text-[#C9A84C] transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-[#C9A84C] transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-center mb-4">
                         <i data-lucide="award" class="text-[#C9A84C] w-8 h-8 mx-auto mb-3"></i>
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Authorized Partner</p>
-                        <p class="text-[12px] font-bold text-white mt-1">Square Yards</p>
+                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Authorized Partner</p>
+                        <p class="text-sm font-bold text-white mt-1">Square Yards</p>
                     </div>
                 </div>
             </div>
-            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[9px] text-gray-500 font-bold uppercase tracking-[0.3em] gap-6">
+            <div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-[0.3em] gap-6 text-center md:text-left">
                 <p>© 2026 Ravi Dhayal • Private Wealth Advisory</p>
-                <div class="flex gap-10">
+                <div class="flex flex-wrap justify-center gap-10">
                     <span class="cursor-default">Privacy Policy</span>
                     <span class="cursor-default">HRERA Reg. No. 343/2017/1000</span>
                 </div>
@@ -559,155 +628,34 @@
 
     <!-- Logic Script -->
     <script>
-        // --- 1. GOOGLE APPS SCRIPT URL ---
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyu5n-AEj35_TLFCW3Wcu6NJ7ePGbX4-JNpF2Pp8xhPcyTfgoS4sViKCYuqI9TiQaW76A/exec";
 
-        // --- 2. COMPLETE DATA ---
-        const PROJECTS = [
-            { id: 'godrej', name: 'Godrej Properties', dev: 'Godrej Properties', loc: 'Sectors 89, 103, 111', price: '₹ 3.0 Cr+', pos: '2027-28', h1: 'Reputed Pan-India Brand', h2: 'High Resale Value', desc: 'Premium 3-4.5 BHK homes near Dwarka Expressway. Known for "Luxury + Lifestyle + Safety" with a strong delivery track record.' },
-            { id: 'westin', name: 'Westin Residences', dev: 'Whiteland Corporation', loc: 'Sector 103, Gurgaon', price: '₹ 4.5 Cr+', pos: 'Dec 2028', h1: '5-Star Branded Residences', h2: 'Marriott Association', desc: 'Hotel-level services like housekeeping and security. Experience living in a 5-star hotel environment that you call home.' },
-            { id: 'eliesaab', name: 'Elie Saab Residences', dev: 'Indian Partner + Elie Saab', loc: 'Sector 111, Dwarka Exp.', price: 'On Request', pos: '2029', h1: 'Haute-Couture Lifestyle', h2: 'Designer Branded Interiors', desc: 'The first Elie Saab project in India. Ultra-premium finishes and exclusive club lounge for HNI and luxury seekers.' },
-            { id: 'smartworld', name: 'Smart World One DXP', dev: 'Smart World Group', loc: 'Sector 113, Dwarka Exp.', price: '₹ 2.6 - 6.8 Cr', pos: 'Dec 2027', h1: '16-Acre Township', h2: 'Low Density Control', desc: 'Township-style project with massive internal roads. Ideal for long-term investment and high rental yield.' },
-            { id: 'bptp', name: 'BPTP Downtown 66', dev: 'BPTP', loc: 'Sector 66, Golf Course Ext.', price: '₹ 4.0 Cr+', pos: '2028', h1: 'Park-Centric Ecosystem', h2: 'Mature Central Location', desc: 'Ultra-luxury 3-4 BHK apartments. Mature neighborhood near top schools, malls, and corporate hubs.' },
-            { id: 'signature', name: 'SG Cloverdale', dev: 'Signature Global', loc: 'Sector 71, SPR', price: 'Mid-Premium', pos: 'PMAY Linked', h1: 'Large Scale Clubhouses', h2: 'Township Lifestyle', desc: 'Offers 6 iconic towers with excellent rental demand and volume rentability in a prime growth corridor.' }
-        ];
-
-        const REVIEWS = [
-            { name: "Vikram Mehta", role: "Business Owner", text: "Ravi's knowledge of the Godrej corridor is phenomenal. He found me a project that appreciated significantly in just 6 months." },
-            { name: "Anjali Khanna", role: "Software Architect", text: "Highly professional service. Square Yards and Ravi handled everything from site visits to paperwork seamlessly." },
-            { name: "Sandeep Gupta", role: "NRI Investor", text: "As an NRI, I needed a trusted advisor. Ravi provided data-backed projections for Westin Residences that were spot on." },
-            { name: "Meera Nair", role: "HNI Investor", text: "Ravi consults like a portfolio manager. His future projections regarding GC Extension road are incredibly accurate." }
-        ];
-
-        const CONTACT_INFO = {
-            phone: "+91 9891356847",
-            whatsapp: "+91 9891356847",
-            linkedin: "https://www.linkedin.com/in/ravi-dhayal-6a19bb10/",
-            address: "2nd Floor, Tower A, M3M Urbana Premium, Sector 67, Gurugram, 122101"
-        };
-
-        // --- 3. UI & ROUTING ---
-        function showPage(pageId, addToHistory = true) {
-            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
-            document.getElementById(`page-${pageId}`).classList.add('active');
-            
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if(btn.dataset.page === pageId) btn.classList.add('nav-link-active');
-                else btn.classList.remove('nav-link-active');
-            });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            toggleMenu(false);
-
-            if (addToHistory) {
-                const url = pageId === 'home' ? window.location.pathname : `#${pageId}`;
-                try {
-                    history.pushState({ page: pageId }, '', url);
-                } catch (e) {
-                    console.warn("History API routing restricted in this environment.", e.message);
-                }
-            }
-        }
-
+        // Mobile Menu
         function toggleMenu(isOpen) {
             const menu = document.getElementById('mobile-menu');
-            if(isOpen) menu.classList.add('open');
-            else menu.classList.remove('open');
-        }
-
-        // Router history handler
-        window.addEventListener('popstate', (e) => {
-            if (e.state && e.state.page) {
-                if (e.state.page === 'detail' && e.state.projectId) {
-                    showProjectDetail(e.state.projectId, false);
-                } else {
-                    showPage(e.state.page, false);
-                }
+            if(isOpen) {
+                menu.classList.remove('hidden');
+                setTimeout(() => menu.classList.add('open'), 10);
             } else {
-                handleRouting(false);
-            }
-        });
-
-        function handleRouting(addToHistory = true) {
-            const hash = window.location.hash;
-            if (hash.startsWith('#projects/')) {
-                const id = hash.replace('#projects/', '');
-                const p = PROJECTS.find(item => item.id === id);
-                if (p) {
-                    showProjectDetail(id, addToHistory);
-                } else {
-                    showPage('projects', addToHistory);
-                }
-            } else if (hash === '#projects') {
-                showPage('projects', addToHistory);
-            } else if (hash === '#contact') {
-                showPage('contact', addToHistory);
-            } else {
-                showPage('home', addToHistory);
+                menu.classList.remove('open');
+                setTimeout(() => menu.classList.add('hidden'), 300);
             }
         }
 
-        // --- 4. FORM LOGIC (GOOGLE APPS SCRIPT FIX) ---
-        function renderLeadForm(containerId, title = "Get a Call Back", projectSource = null) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            container.innerHTML = `
-                <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-100 h-full">
-                    <h3 class="text-2xl font-bold text-[#1A1A2E] mb-2">${title}</h3>
-                    <p class="text-sm text-gray-500 mb-8 font-medium">Priority inventory access via Ravi Dhayal's desk.</p>
-                    <form class="space-y-4" onsubmit="handleFormSubmit(event, '${containerId}', '${projectSource || title}')">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Full Name</label>
-                            <input name="name" required minlength="3" type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#C9A84C] outline-none transition-all font-medium" placeholder="Enter your name">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Phone Number</label>
-                            <input name="phone" required pattern="[0-9]{10}" type="tel" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#C9A84C] outline-none transition-all font-medium" placeholder="10 Digit Mobile Number">
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Budget</label>
-                                <select name="budget" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 outline-none appearance-none font-bold text-sm">
-                                    <option value="" disabled selected>Select Budget</option>
-                                    <option value="₹ 1.5 - 2.5 Cr">₹ 1.5 - 2.5 Cr</option>
-                                    <option value="₹ 2.5 - 4.0 Cr">₹ 2.5 - 4.0 Cr</option>
-                                    <option value="₹ 4.0 - 7.0 Cr">₹ 4.0 - 7.0 Cr</option>
-                                    <option value="₹ 7.0 Cr+">₹ 7.0 Cr+</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Location</label>
-                                <select name="location" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 outline-none appearance-none font-bold text-sm">
-                                    <option value="" disabled selected>Select Location</option>
-                                    <option value="Dwarka Exp.">Dwarka Exp.</option>
-                                    <option value="GC Extension">GC Extension</option>
-                                    <option value="SPR Road">SPR Road</option>
-                                    <option value="New Gurgaon">New Gurgaon</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="submit-btn w-full bg-[#1A1A2E] text-white font-bold py-5 rounded-xl hover:bg-[#2A2A4E] transition-all flex items-center justify-center space-x-2 shadow-lg active:scale-95 uppercase tracking-widest text-sm">
-                            <span class="btn-text">Connect with Ravi</span>
-                        </button>
-                        <div class="pt-4 text-center">
-                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center justify-center gap-1">
-                                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Authorized Square Yards Advisory
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            `;
-        }
-
-        async function handleFormSubmit(e, containerId, sourceTitle) {
+        // Form Submit
+        async function handleFormSubmit(e, sourceTitle) {
             e.preventDefault();
             const form = e.target;
+            
+            // Spam protection - if hidden honeypot is filled, abort silently
+            if(form._honey && form._honey.value) {
+                console.warn("Spam detected.");
+                return;
+            }
+
             const submitBtn = form.querySelector('.submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
             
-            // UI Feedback
             btnText.innerText = "Sending Securely...";
             submitBtn.disabled = true;
 
@@ -721,17 +669,14 @@
             };
 
             try {
-                // Changing Content-Type to text/plain bypasses the CORS preflight block while still passing JSON data
                 await fetch(APPS_SCRIPT_URL, {
                     method: "POST",
-                    headers: { 
-                        "Content-Type": "text/plain;charset=utf-8" 
-                    },
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
                     body: JSON.stringify(data)
                 });
 
-                // Success View
-                const container = document.getElementById(containerId);
+                // Replace form with Success View
+                const container = document.getElementById('hero-form-container');
                 container.innerHTML = `
                     <div class="text-center py-10 bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-100 h-full flex flex-col justify-center">
                         <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -739,20 +684,19 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-2 text-[#1A1A2E]">Lead Received!</h3>
                         <p class="text-gray-600 mb-8 font-medium">I've received your inquiry. Expect a call on ${data.phone} within 60 minutes.</p>
-                        <button onclick="renderLeadForm('${containerId}', '${sourceTitle}', '${sourceTitle}'); lucide.createIcons();" class="text-[#C9A84C] font-bold text-sm uppercase tracking-widest hover:underline">New Inquiry</button>
+                        <button onclick="location.reload()" class="text-[#C9A84C] font-bold text-sm uppercase tracking-widest hover:underline">New Inquiry</button>
                     </div>
                 `;
-                // Intentionally only calling this after a new DOM injection
                 lucide.createIcons();
             } catch (err) {
                 console.error("Submission failed:", err);
                 btnText.innerText = "Error - Try Again";
                 submitBtn.disabled = false;
-                alert("Please check your connection. Make sure your Google Apps script is published to 'Anyone' and deployed as a Web App.");
+                alert("Please check your connection and try again.");
             }
         }
 
-        // --- 5. EMI CALCULATOR ---
+        // EMI Calculator Logic
         function formatAmount(v) {
             if (v >= 10000000) return `₹ ${(v/10000000).toFixed(2)} Cr`;
             return `₹ ${(v/100000).toFixed(0)} L`;
@@ -791,60 +735,8 @@
             }
         }
 
+        // Initialize Calculator Listeners
         function setupCalculator() {
-            const container = document.getElementById('emi-calc-container');
-            container.innerHTML = `
-                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                    <div class="bg-[#1A1A2E] p-6 text-center">
-                        <h3 class="text-[#C9A84C] font-bold text-lg uppercase tracking-widest">Loan EMI Estimator</h3>
-                    </div>
-                    <div class="p-8 space-y-8">
-                        <div>
-                            <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
-                                <div>
-                                    <span>Loan Amount (₹)</span>
-                                    <span id="emi-val-formatted" class="text-[#C9A84C] ml-1 font-extrabold normal-case tracking-normal text-xs"></span>
-                                </div>
-                                <input type="number" id="emi-val-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-36" value="15000000">
-                            </div>
-                            <input type="range" min="1000000" max="100000000" step="100000" value="15000000" id="emi-val" class="w-full mt-2">
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
-                                    <span>Rate (%)</span>
-                                    <input type="number" step="0.1" id="emi-rate-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-20" value="8.5">
-                                </div>
-                                <input type="range" min="6" max="15" step="0.1" value="8.5" id="emi-rate" class="w-full mt-2">
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest">
-                                    <span>Tenure (Yrs)</span>
-                                    <input type="number" id="emi-yr-num" class="text-right bg-gray-50 text-[#1A1A2E] font-bold px-3 py-1 rounded-lg border border-gray-200 outline-none focus:ring-2 focus:ring-[#C9A84C] w-20" value="20">
-                                </div>
-                                <input type="range" min="1" max="30" step="1" value="20" id="emi-yr" class="w-full mt-2">
-                            </div>
-                        </div>
-                        <div class="mt-8 p-6 bg-gray-50 rounded-2xl">
-                            <div class="text-center">
-                                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Estimated Monthly Payment</p>
-                                <p class="text-4xl font-extrabold text-[#C9A84C]" id="emi-result">₹ 1,30,170</p>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-gray-200">
-                                <div class="text-center">
-                                    <p class="text-[8px] font-bold text-gray-400 uppercase">Total Interest</p>
-                                    <p class="text-sm font-bold text-[#1A1A2E]" id="total-interest">₹ 1.62 Cr</p>
-                                </div>
-                                <div class="text-center">
-                                    <p class="text-[8px] font-bold text-gray-400 uppercase">Total Payable</p>
-                                    <p class="text-sm font-bold text-[#1A1A2E]" id="total-payable">₹ 3.12 Cr</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
             const mappings = [
                 { slider: 'emi-val', input: 'emi-val-num' },
                 { slider: 'emi-rate', input: 'emi-rate-num' },
@@ -854,146 +746,18 @@
             mappings.forEach(pair => {
                 const slider = document.getElementById(pair.slider);
                 const input = document.getElementById(pair.input);
-                slider.addEventListener('input', (e) => { input.value = e.target.value; calculateEMI(); });
-                input.addEventListener('input', (e) => { slider.value = e.target.value; calculateEMI(); });
+                if(slider && input) {
+                    slider.addEventListener('input', (e) => { input.value = e.target.value; calculateEMI(); });
+                    input.addEventListener('input', (e) => { slider.value = e.target.value; calculateEMI(); });
+                }
             });
-            
             calculateEMI();
         }
 
-        // --- 6. RENDER DYNAMIC CONTENT ---
-        function renderProjects() {
-            const grid = document.getElementById('projects-grid');
-            grid.innerHTML = PROJECTS.map(p => `
-                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all">
-                    <div class="p-8 flex-1">
-                        <p class="text-[10px] font-bold text-[#C9A84C] uppercase tracking-widest mb-2">${p.dev}</p>
-                        <h3 class="text-2xl font-bold text-[#1A1A2E] mb-6 leading-tight">${p.name}</h3>
-                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-gray-50 mb-8">
-                            <div><p class="text-[10px] text-gray-400 font-bold uppercase mb-1">Pricing</p><p class="font-bold text-[#1A1A2E]">${p.price}</p></div>
-                            <div><p class="text-[10px] text-gray-400 font-bold uppercase mb-1">Possession</p><p class="text-xs font-bold text-[#1A1A2E]">${p.pos}</p></div>
-                        </div>
-                        <ul class="space-y-2 mb-8">
-                            <li class="flex items-center text-xs font-medium text-gray-600"><i data-lucide="check-circle-2" class="text-emerald-500 mr-2 w-4 h-4"></i> ${p.h1}</li>
-                            <li class="flex items-center text-xs font-medium text-gray-600"><i data-lucide="check-circle-2" class="text-emerald-500 mr-2 w-4 h-4"></i> ${p.h2}</li>
-                        </ul>
-                        <a href="#projects/${p.id}" onclick="showProjectDetail('${p.id}'); return false;" class="w-full bg-[#1A1A2E] text-white py-4 rounded-xl font-bold text-xs uppercase tracking-widest active:scale-95 transition-all text-center inline-block">
-                            Project Analysis
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function showProjectDetail(id, addToHistory = true) {
-            const p = PROJECTS.find(item => item.id === id);
-            if (!p) return;
-
-            const container = document.getElementById('detail-content');
-            container.innerHTML = `
-                <div class="grid lg:grid-cols-3 gap-16">
-                    <div class="lg:col-span-2">
-                        <div class="mb-12">
-                            <span class="bg-[#C9A84C] text-[#1A1A2E] px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest mb-6 inline-block">Strategic Mandate</span>
-                            <h2 class="text-5xl font-extrabold text-[#1A1A2E] mb-6 tracking-tight">${p.name}</h2>
-                            <p class="text-xl text-gray-500 flex items-center font-medium"><i data-lucide="map-pin" class="mr-3 text-[#C9A84C]"></i> ${p.loc}</p>
-                        </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                                <p class="text-[10px] text-gray-400 font-bold uppercase mb-2 tracking-widest">Developer</p>
-                                <p class="text-base font-bold text-[#1A1A2E]">${p.dev}</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                                <p class="text-[10px] text-gray-400 font-bold uppercase mb-2 tracking-widest">Status</p>
-                                <p class="text-base font-bold text-[#1A1A2E]">${p.pos}</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                                <p class="text-[10px] text-gray-400 font-bold uppercase mb-2 tracking-widest">Grade</p>
-                                <p class="text-base font-bold text-[#1A1A2E]">Institutional</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                                <p class="text-[10px] text-gray-400 font-bold uppercase mb-2 tracking-widest">Segment</p>
-                                <p class="text-base font-bold text-[#1A1A2E]">Premium</p>
-                            </div>
-                        </div>
-                        <p class="text-lg text-gray-600 mb-16 leading-relaxed font-medium">${p.desc}</p>
-                    </div>
-                    <div class="lg:col-span-1">
-                        <div class="sticky top-28 space-y-8">
-                            <div id="detail-form-container"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            showPage('detail', false); // Let the manual pushState below handle the URL tracking
-
-            if (addToHistory) {
-                try {
-                    history.pushState({ page: 'detail', projectId: id }, '', `#projects/${id}`);
-                } catch(e) {
-                    console.warn("History API routing restricted in this environment. ", e.message);
-                }
-            }
-            
-            // Render the specific project form!
-            renderLeadForm('detail-form-container', 'Portfolio Brief Request', `Project: ${p.name}`);
-            
-            // Intentionally only calling this after a new DOM injection
-            lucide.createIcons();
-        }
-
-        function init() {
-            // Render all UI Components
-            renderLeadForm('hero-form-container', 'Get a Call Back', 'Homepage Hero');
-            renderLeadForm('contact-form-container', 'Book Meeting', 'Contact Page');
+        document.addEventListener('DOMContentLoaded', () => {
             setupCalculator();
-            renderProjects();
-            
-            // Render Stars & Testimonials
-            document.getElementById('stars-container').innerHTML = Array(5).fill('<i data-lucide="star" class="w-5 h-5 fill-[#C9A84C]"></i>').join('');
-            document.getElementById('testimonials-grid').innerHTML = REVIEWS.map(t => `
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 h-full flex flex-col justify-between shadow-sm">
-                    <p class="text-gray-600 mb-8 italic font-medium">"${t.text}"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-[#1A1A2E] text-white rounded-full flex items-center justify-center font-bold text-sm">${t.name[0]}</div>
-                        <div><p class="font-bold text-sm text-[#1A1A2E]">${t.name}</p><p class="text-[10px] text-gray-400 font-bold uppercase">${t.role}</p></div>
-                    </div>
-                </div>
-            `).join('');
-
-            // Define custom brand SVGs for contact list
-            const WHATSAPP_SVG = `<svg viewBox="0 0 24 24" class="w-7 h-7 fill-[#25D366]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
-            const LINKEDIN_SVG = `<svg viewBox="0 0 24 24" class="w-7 h-7 fill-[#0077b5]"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>`;
-
-            // Render Contact Info List
-            const list = document.getElementById('contact-info-list');
-            list.innerHTML = [
-                { i: 'map-pin', l: 'Location', v: CONTACT_INFO.address, link: null },
-                { i: 'clock', l: 'Hours', v: '10 AM – 7 PM (Mon - Sat)', link: null },
-                { i: 'phone', l: 'Direct Call', v: CONTACT_INFO.phone, link: `tel:+919891356847` },
-                { custom: WHATSAPP_SVG, l: 'WhatsApp', v: '+91 9891356847', link: `https://wa.me/919891356847` },
-                { custom: LINKEDIN_SVG, l: 'LinkedIn', v: 'Professional Profile', link: CONTACT_INFO.linkedin }
-            ].map(item => `
-                <div class="flex gap-6 items-center">
-                    <div class="bg-white w-16 h-16 rounded-2xl contact-icon-shadow border border-gray-100 flex items-center justify-center shrink-0">
-                        ${item.custom ? item.custom : `<i data-lucide="${item.i}" class="w-7 h-7 text-[#C9A84C]"></i>`}
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1.5">${item.l}</p>
-                        ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-[#1A1A2E] hover:text-[#C9A84C] transition-colors">${item.v}</a>` : `<p class="text-lg font-bold text-[#1A1A2E]">${item.v}</p>`}
-                    </div>
-                </div>
-            `).join('');
-            
-            // Intentionally only calling this after initial DOM injection
             lucide.createIcons();
-            
-            // Route processing
-            handleRouting(false); // Parse hash without pushing a duplicate state
-        }
-        
-        window.onload = init;
+        });
     </script>
 </body>
 </html>
